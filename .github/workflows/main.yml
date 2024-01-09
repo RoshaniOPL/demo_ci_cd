@@ -17,6 +17,7 @@ jobs:
 
     - name: Debug
       run: |
+        pwd
         ls 
 
     - name: Install dependencies
