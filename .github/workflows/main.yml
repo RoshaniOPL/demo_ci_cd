@@ -18,7 +18,8 @@ jobs:
     - name: Debug
       run: |
         pwd
-        ll 
+        cd demo_ci_cd
+        ls
 
     - name: Install dependencies
       run: |
