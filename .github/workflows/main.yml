@@ -32,6 +32,6 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint demo_ci_cd
+        pylint ../demo_ci_cd
 
 
