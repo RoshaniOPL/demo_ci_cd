@@ -37,8 +37,8 @@ jobs:
     - name: Deploy
       if: success()
       run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
+        git config --global user.email "roshni.kale@onlinepsbloans.com"
+        git config --global user.name "rosh"
         git add .
         git commit -m "Auto-commit: Passed all tests [skip ci]"
         git remote add origin_with_token https://$GH_TOKEN@github.com/RoshaniOPL/demo_ci_cd.git
