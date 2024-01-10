@@ -27,8 +27,18 @@ jobs:
       run: |
         cd ${{ github.workspace }}
         python -m pip install --upgrade pip
-        python demo.py
         python -m pip install -r requirements.txt   
+
+    - name: Push to Dev branch if tests pass
+      if: success()
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git checkout -B dev  # Create and switch to 'dev' branch if it doesn't exist
+        git pull origin dev  # Pull any changes from the remote 'dev' branch
+        git merge main --no-edit  # Merge changes from 'main' into 'dev'
+        git push origin dev  # Push changes to 'dev'
+
 
     - name: Run Pylint
       run: |
