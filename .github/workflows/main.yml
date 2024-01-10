@@ -40,9 +40,8 @@ jobs:
         git config --global user.email "roshni.kale@onlinepsbloans.com"
         git config --global user.name "rosh"
         git add .
-        git checkout -b dev
         git commit -m "auto-commit: Passed all tests [skip ci]"
-        git push origin dev
+        git push origin -b dev
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
