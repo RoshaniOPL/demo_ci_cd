@@ -34,7 +34,7 @@ jobs:
       run: |
         git config --global user.email "roshni.kale@onlinepsbloans.com"
         git config --global user.name "rosh"
-        git checkout dev
+        git checkout -B dev
         git pull origin main
         git push origin dev
         if python -m unittest discover -s ./tests; then
