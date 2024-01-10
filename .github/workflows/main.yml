@@ -28,20 +28,23 @@ jobs:
         cd ${{ github.workspace }}
         python -m pip install --upgrade pip
         python demo.py
-        python -m pip install -r requirements.txt  
+        python -m pip install -r requirements.txt   
 
-    - name: Run tests
-      run: |
-        python -m unittest discover -s ./tests  
-
-    - name: Deploy
-      if: success()
+    - name: Update dev branch and run tests
       run: |
         git config --global user.email "roshni.kale@onlinepsbloans.com"
         git config --global user.name "rosh"
-        git add .
-        git commit -m "auto-commit: Passed all tests [skip ci]"
+        git checkout dev
+        git pull origin main
         git push origin dev
+        if python -m unittest discover -s ./tests; then
+          echo "All tests passed. Committing to dev."
+          git add .
+          git commit -m "auto-commit: Passed all tests [skip ci]"
+          git push origin dev
+        else
+          echo "Tests failed. Not committing to dev."
+        fi
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
