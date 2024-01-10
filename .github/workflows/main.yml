@@ -41,7 +41,7 @@ jobs:
         git config --global user.name "rosh"
         git add .
         git commit -m "auto-commit: Passed all tests [skip ci]"
-        git push origin -b dev
+        git push origin dev
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
