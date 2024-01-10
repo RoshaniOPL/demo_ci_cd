@@ -39,6 +39,7 @@ jobs:
         git push origin dev
         if python -m unittest discover -s ./tests; then
           echo "All tests passed. Committing to dev."
+          git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/RoshaniOPL/demo_ci_cd.git
           git add .
           git commit -m "auto-commit: Passed all tests [skip ci]"
           git push origin dev
