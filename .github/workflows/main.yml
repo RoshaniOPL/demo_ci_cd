@@ -41,8 +41,7 @@ jobs:
         git config --global user.name "rosh"
         git add .
         git commit -m "auto-commit: Passed all tests [skip ci]"
-        git remote add origin_with_token https://$GH_TOKEN@github.com/RoshaniOPL/demo_ci_cd.git
-        git push origin_with_token main
+        git push origin dev
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
